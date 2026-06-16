@@ -982,3 +982,145 @@ img { max-width: 100%; }
   .certs-grid { grid-template-columns: 1fr; }
   .achievement-banner { flex-direction: column; text-align: center; }
 }
+
+/* ==========================================
+   EDUCATION CARD WITH INLINE CHART
+   ========================================== */
+.edu-card-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.edu-card-text {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+.edu-card-chart {
+  flex: 0 0 auto;
+}
+/* Reset the chart's outer margin when it's inside a card */
+.edu-card-chart .gpa-chart-wrapper {
+  margin-top: 0;
+}
+
+/* ==========================================
+   GPA CHART
+   ========================================== */
+.gpa-chart-wrapper {
+  margin-top: 2rem;
+  max-width: 420px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1rem 0.75rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.gpa-chart-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,212,255,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+.gpa-chart-wrapper:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-accent);
+}
+
+/* Header row */
+.gpa-chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.gpa-chart-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* CGPA badge */
+.cgpa-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(0,212,255,0.1));
+  border: 1px solid rgba(124,58,237,0.4);
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+}
+.cgpa-label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 600;
+}
+.cgpa-value {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* SVG line chart */
+.gpa-svg-container {
+  width: 100%;
+  overflow: visible;
+}
+.gpa-line-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+/* Point pulse animation */
+@keyframes gpaPulse {
+  0%   { r: 10; opacity: 0.6; }
+  100% { r: 18; opacity: 0; }
+}
+
+/* Legend */
+.gpa-legend {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+.gpa-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+.gpa-legend-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.gpa-legend-dot--high { background: var(--accent); box-shadow: 0 0 6px var(--accent); }
+.gpa-legend-dot--low  { background: var(--accent-2); box-shadow: 0 0 6px var(--accent-2); }
+.gpa-legend-line {
+  width: 20px;
+  height: 0;
+  border-top: 2px dashed rgba(124,58,237,0.7);
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .gpa-chart-wrapper { padding: 1.25rem 1rem 1rem; }
+  .gpa-legend { gap: 0.9rem; }
+}
+

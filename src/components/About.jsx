@@ -26,7 +26,7 @@ export default function About() {
               {[
                 ['Location', 'Piduguralla, AP, India'],
                 ['University', 'Chandigarh University'],
-                ['CGPA', '7.85'],
+                ['CGPA', '7.96'],
                 ['Batch', '2023 – 2027'],
                 ['Role', 'Active Member – Cypherlock Club'],
                 ['Status', 'Registered ISC2 Candidate'],

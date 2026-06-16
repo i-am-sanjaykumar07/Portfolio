@@ -1,11 +1,13 @@
 import { useEffect, useRef } from 'react';
+import GpaChart from './GpaChart';
 
 const items = [
   {
     period: 'Aug 2023 – May 2027',
     degree: 'B.E. Computer Science & Engineering',
     institution: 'Chandigarh University, Mohali',
-    detail: <>Specialization in Information Security &nbsp;·&nbsp; <strong>CGPA: 7.85</strong></>,
+    detail: <>Specialization in Information Security &nbsp;·&nbsp; <strong>CGPA: 7.96</strong></>,
+    chart: true,   // ← render chart inside this card
   },
   {
     period: 'Sep 2021 – Mar 2023',
@@ -41,10 +43,20 @@ export default function Education() {
             <div className="timeline-item reveal" key={item.period} ref={el => refs.current[i] = el}>
               <div className="timeline-dot" />
               <div className="timeline-content card">
-                <span className="timeline-period">{item.period}</span>
-                <h3>{item.degree}</h3>
-                <p className="timeline-institution">{item.institution}</p>
-                <p className="timeline-detail">{item.detail}</p>
+                {/* Card top row: text info + chart side by side */}
+                <div className={item.chart ? 'edu-card-row' : ''}>
+                  <div className="edu-card-text">
+                    <span className="timeline-period">{item.period}</span>
+                    <h3>{item.degree}</h3>
+                    <p className="timeline-institution">{item.institution}</p>
+                    <p className="timeline-detail">{item.detail}</p>
+                  </div>
+                  {item.chart && (
+                    <div className="edu-card-chart">
+                      <GpaChart />
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           ))}
