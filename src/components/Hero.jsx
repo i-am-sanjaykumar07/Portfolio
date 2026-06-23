@@ -93,8 +93,8 @@ export default function Hero() {
     svg.insertBefore(defs, svg.firstChild);
   }, []);
 
-  const projects = useCounter(2, statsStarted);
-  const certs    = useCounter(5, statsStarted);
+  const projects = useCounter(3, statsStarted);
+  const certs    = useCounter(6, statsStarted);
   const techs    = useCounter(7, statsStarted);
 
   return (
