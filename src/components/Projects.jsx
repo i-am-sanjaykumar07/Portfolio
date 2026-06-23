@@ -5,11 +5,12 @@ const projects = [
     badgeClass: 'award',
     title: 'Smart Home Automation System',
     period: 'Jan 2024 – May 2024 · Developer',
-    desc: 'Designed and implemented an IoT-based automation system using Arduino, ESP8266, and sensor modules, with mobile and voice-based controls for real-time system interaction.',
+    desc: 'Developed an IoT-based home automation system using Arduino, ESP8266, and sensor modules, securing 2nd prize at the University Project Expo.',
     bullets: [
-      'Control logic for automated appliances—reliable, efficient & responsive',
-      'Integrated mobile & voice-based controls for real-time interaction',
-      'Awarded 2nd Prize at University-Level Project Expo',
+      'Developed an IoT-based home automation system using Arduino, ESP8266, and sensor modules.',
+      'Implemented wireless device control and sensor-based automation for real-time operations.',
+      'Integrated hardware components and optimized communication between IoT devices.',
+      'Secured 2nd Prize at University-Level Project Expo for innovative IoT implementation.',
     ],
     tech: ['Arduino', 'ESP8266', 'IoT', 'C++'],
   },
@@ -18,14 +19,32 @@ const projects = [
     badge: '🌐 Web + IoT Concept',
     badgeClass: '',
     title: 'Umbrella Rental System',
-    period: '2025 · Developer',
-    desc: 'A QR-based umbrella rental platform emphasising scalability and clean system architecture, with a React frontend and modular mock API backend.',
+    period: '2025 · Product Designer & Developer',
+    desc: 'Designed a QR-based smart umbrella rental platform (RainShield) combining React web technology with IoT concepts.',
     bullets: [
-      'QR-based check-in/check-out flow for fully automated rentals',
-      'Responsive frontend built with React Framework',
-      'Simulated backend workflows using mock APIs',
+      'Designed a QR-based smart umbrella rental platform combining web technology with IoT concepts.',
+      'Developed responsive user interfaces using React.js and modern frontend technologies.',
+      'Implemented API-based workflows to simulate rental operations and user interactions.',
+      'Designed a scalable system architecture focusing on accessibility and user convenience.',
     ],
-    tech: ['React', 'REST API', 'QR Code', 'IoT'],
+    tech: ['React', 'Node.js', 'Express.js', 'MongoDB', 'IoT'],
+    link: 'https://rain-shield.vercel.app',
+  },
+  {
+    num: '03',
+    badge: '📊 MERN Full Stack',
+    badgeClass: '',
+    title: 'Placement Tracker System',
+    period: '2026 · Full Stack Developer',
+    desc: 'Developed a MERN-based placement management system for student and company drive tracking with dynamic status reporting.',
+    bullets: [
+      'Developed a MERN-based placement management system for student and company drive tracking.',
+      'Built responsive frontend components using React.js for improved user experience.',
+      'Designed REST APIs and integrated MongoDB for authentication and data management.',
+      'Implemented structured workflows to simplify placement application monitoring.',
+    ],
+    tech: ['MongoDB', 'Express', 'React', 'Node.js', 'REST API'],
+    link: 'https://placement96.vercel.app',
   },
 ];
 
@@ -50,6 +69,19 @@ export default function Projects() {
               <div className="project-tech">
                 {p.tech.map(t => <span className="tech-tag" key={t}>{t}</span>)}
               </div>
+              {p.link && (
+                <div style={{ marginTop: '1rem', paddingTop: '0.5rem' }}>
+                  <a 
+                    href={p.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="btn btn-outline"
+                    style={{ padding: '0.4rem 0.85rem', fontSize: '0.75rem', display: 'inline-flex', alignItems: 'center', gap: '0.25rem', fontFamily: 'var(--font-mono)' }}
+                  >
+                    Live Demo ↗
+                  </a>
+                </div>
+              )}
             </div>
           ))}
         </div>
